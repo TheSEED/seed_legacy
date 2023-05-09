@@ -6,6 +6,9 @@ TARGET ?= /kb/deployment
 
 APP_SERVICE = app_service
 
+SRC_CGI_PERL = $(wildcard cgi-scripts/*.pl)
+BIN_CGI_PERL = $(addprefix $(CGI_BIN_DIR)/,$(basename $(notdir $(SRC_CGI_PERL))))
+
 SRC_PERL = $(wildcard scripts/*.pl)
 BIN_PERL = $(addprefix $(BIN_DIR)/,$(basename $(notdir $(SRC_PERL))))
 DEPLOY_PERL = $(addprefix $(TARGET)/bin/,$(basename $(notdir $(SRC_PERL))))
@@ -27,9 +30,18 @@ TPAGE_ARGS = --define kb_top=$(TARGET) --define kb_runtime=$(DEPLOY_RUNTIME) --d
 	--define kb_starman_workers=$(STARMAN_WORKERS) \
 	--define kb_starman_max_requests=$(STARMAN_MAX_REQUESTS)
 
-all: bin 
+all: bin  cp-html
 
-bin: $(BIN_PERL) $(BIN_SERVICE_PERL)
+cp-html:
+	mkdir -p $(TOP_DIR)/html
+	for dir in js images css; do \
+	    if [[ -d $$dir ]] ; then \
+		rsync -arv $$dir/* $(TOP_DIR)/html; \
+	    fi; \
+	done
+
+
+bin: $(BIN_PERL) $(BIN_SERVICE_PERL) $(BIN_CGI_PERL)
 
 deploy: deploy-all
 deploy-all: deploy-client 
@@ -53,6 +65,19 @@ deploy-service-scripts:
 	        $(WRAP_PERL_SCRIPT) "$(TARGET)/plbin/$$basefile" $(TARGET)/bin/$$base ; \
 	done
 
+deploy-cgi-scripts:
+	export KB_TOP=$(TARGET); \
+        export KB_RUNTIME=$(DEPLOY_RUNTIME); \
+        export KB_PERL_PATH=$(TARGET)/lib ; \
+        for src in $(SRC_CGI_PERL) ; do \
+                basefile=`basename $$src`; \
+                base=`basename $$src .pl`; \
+                echo install $$src $$base ; \
+                cp $$src $(TARGET)/plbin ; \
+                $(WRAP_PERL_SCRIPT) "$(TARGET)/plbin/$$basefile" $(TARGET)/cgi-bin/$$base ; \
+        done
+
+
 
 deploy-dir:
 	if [ ! -d $(SERVICE_DIR) ] ; then mkdir $(SERVICE_DIR) ; fi
@@ -69,5 +94,9 @@ $(BIN_DIR)/%: service-scripts/%.pl $(TOP_DIR)/user-env.sh
 
 $(BIN_DIR)/%: service-scripts/%.py $(TOP_DIR)/user-env.sh
 	$(WRAP_PYTHON_SCRIPT) '$$KB_TOP/modules/$(CURRENT_DIR)/$<' $@
+
+$(CGI_BIN_DIR)/%: cgi-scripts/%.pl $(TOP_DIR)/user-env.sh
+	$(WRAP_PERL_SCRIPT) '$$KB_TOP/modules/$(CURRENT_DIR)/$<' $@.cgi
+
 
 include $(TOP_DIR)/tools/Makefile.common.rules
