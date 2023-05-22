@@ -27,6 +27,7 @@ eval {
 
 
 use strict;
+use Data::Dumper;
 use FIGjs;           #  toolTipScript
 use GenoGraphics;    #  render
 use gjoparseblast;   #  next_blast_hsp
@@ -635,7 +636,9 @@ my $hide = <<'Old_genome_selector';
 
     my @orgs;
     my %org_labels;
-    foreach my $org ($fig->genomes( $complete, undef, $canonical{ $req_dom } ))
+    my @genomes = $fig->genomes( $complete, undef, $canonical{ $req_dom } );
+    print STDERR Dumper("Fill genomes", \@genomes);
+    foreach my $org (@genomes)
     {
         my $label = compute_genome_label($fig, $org);
         $org_labels{$org} = $label;
@@ -697,7 +700,9 @@ Old_genome_selector
                     };
 
     #  Once per WWW page (this is specific to getting all SEED genomes)
-    push @$html, GenomeSelector::genomeHTML( $fig, $listname );
+    my $sel_html = GenomeSelector::genomeHTML( $fig, $listname );
+    push @$html, $sel_html;
+    #print STDERR Dumper(sel => $sel_html);
 
     #  Once per WWW page
     push @$html, GenomeSelector::scriptHTML();

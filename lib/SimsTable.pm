@@ -1456,7 +1456,7 @@ sub trans_function_of
     }
     else
     {
-        my $func = $fig->function_of( $peg, $cgi->param( 'user' ) );
+        my $func = $fig->function_of( $peg, scalar $cgi->param( 'user' ) );
         if ($cgi->param('translate'))
         {
             $func = $fig->translate_function( $func );

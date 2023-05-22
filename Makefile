@@ -34,11 +34,12 @@ all: bin  cp-html
 
 cp-html:
 	mkdir -p $(TOP_DIR)/html
-	for dir in js images css; do \
+	for dir in js images ; do \
 	    if [[ -d $$dir ]] ; then \
 		rsync -arv $$dir/* $(TOP_DIR)/html; \
 	    fi; \
 	done
+	rsync -arv css $(TOP_DIR)/html
 
 
 bin: $(BIN_PERL) $(BIN_SERVICE_PERL) $(BIN_CGI_PERL)

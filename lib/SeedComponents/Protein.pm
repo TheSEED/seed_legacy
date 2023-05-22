@@ -3870,7 +3870,10 @@ sub sims {
     my( @tmp, $id, $genome, @genomes, %sims, $sim );
 
     @tmp = $fig_or_sprout->sims( $peg, $max, $cutoff, $select, $expand, $filters );
-    @tmp = grep { !($_->id2 =~ /^fig\|/ and $fig_or_sprout->is_deleted_fid($_->id2)) } @tmp;
+    # @tmp = grep { !($_->id2 =~ /^fig\|/ } @tmp;
+    my $del = $fig_or_sprout->is_deleted_fid_bulk(map { $_->id2 } grep { $_->id2 =~ /^fig\|/} @tmp);
+    print STDERR Dumper(DEL => $del);
+    # @tmp = grep { !($_->id2 =~ /^fig\|/ and $fig_or_sprout->is_deleted_fid($_->id2)) } @tmp;
     if (! $group_by_genome)  { return @tmp };
 
     #  Collect all sims from genome with the first occurance of the genome:
