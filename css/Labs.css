@@ -1,0 +1,76 @@
+.search {
+ margin: 20px 10%;
+ text-align: center;
+}
+
+
+.available_genomes {
+ margin: 10px 10% 10px 10%;
+ height: 200px;
+ width: auto;
+ overflow: auto;
+ border-top: 1px solid  #399;
+ border-left: 1px solid  #399;
+ border-bottom: 1px solid #366;
+ border-right: 1px solid #366;
+}
+ 
+.subsystems {display: none}
+
+.header {
+	background-color: #339999;
+	FONT-SIZE: 30px;
+	COLOR: white;
+	TEXT-ALIGN: center;
+	height: 90px;
+	vertical-align: center;
+}
+
+/* styleswitches are small, on the right and have a bar next to them */
+
+div.styleswitcher {
+ font-size: 75%;
+ text-align: right;
+ color: #339999;
+}
+span.styleswitcher {
+ margin-left: 0.5em;
+ padding-left: 0.5em;
+ border-left: solid 1px;
+}
+
+
+/* Header text is italic, serif */
+.boxheader {
+ font-style: italic;
+ font-size: 175%;
+ color: #399;
+ font-family: serif;
+}
+
+/* Intro text is smaller, has margins, and is centered */
+.intro {
+ font-size: 90%;
+ margin: 10px 10% 10px 10%;
+ overflow: auto;
+}
+ 
+.intro2 {display: none}
+
+
+
+
+/* STUFF below is from the phage css. Stuff above is de novo */
+
+
+table, td, textarea,input, select,body,button{
+    font-size: 12px;
+    font-family: Verdana, Georgia;
+}
+body {
+	background-color: #FFFFFF;
+	margin: 0px;
+}
+a:link{color:#006666; text-decoration: none;}
+a:visited{color:#006666; text-decoration: none;}
+a:hover{color:#000000; }

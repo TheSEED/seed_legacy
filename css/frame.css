@@ -1,0 +1,362 @@
+/* Appearance */
+/* h1 {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+body {
+    font-family: arial;
+    font-size: 10pt;
+} */
+
+.title {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.headline {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.version {
+    font-size: 9pt;
+}
+
+.highlight {
+    border: 1px solid red;
+}
+
+.plain {
+    
+}
+
+.blast {
+    font-family: monospace;
+}
+
+.message {
+    width: 95%;
+    border: 2px solid red;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 14pt;
+}
+
+/* Layout */
+table.main {
+    width: 100%;
+    height: 100%;
+}
+
+table.left {
+    width: 200px;
+    padding-right: 2px;
+    padding-left: 2px;
+    height: 100%;
+    background-color: #F0F0F0;
+    border: 1px solid lightblue;
+}
+
+table.center {
+    width: 100%;
+    height: 100%;
+    margin-left: 2px;
+}
+
+td.center {
+    width: 100%;
+}
+
+td.menu {
+    padding-top: 10px;
+    vertical-align: top;
+    height: 100%;
+    width: 100%;
+}
+
+td.session {
+    vertical-align: top;
+    width: 100%;
+}
+
+td.logo {
+    vertical-align: middle;
+    height: 100px;
+    width: 100%;
+}
+
+td.content {
+    padding-left: 20px;
+    padding-top: 10px;
+    border: 1px solid lightblue;
+}
+div.content {
+    height: 100%;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+.foreign_site {
+    width: 100%;
+}
+
+/* Component Definitions */
+
+.help {
+    cursor: help;
+    width: 20px;
+    height: 20px;
+}
+
+.login {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 2px outset gray;
+}
+
+.login:active {
+    border: 2px inset gray;
+}
+
+.pretty_table {
+    border: 2px solid black;
+    border-spacing: 0px;
+    cursor: default;
+}
+
+.highlight:hover {
+    background-color: BBBBBB;
+}
+
+.visible_cell {
+    border: 1px solid black;
+}
+
+.invisible_cell {
+    border: 2px solid red;
+}
+
+.hideme {
+    display: none;
+}
+
+.showme {
+    
+}
+
+.layout {
+    width: 100%;
+}
+
+.label {
+    border: none;
+    background-color: transparent;
+    width: 170px;
+    font-family: arial;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.menu_item {
+    cursor: pointer;
+    padding-left: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: black;
+    text-decoration: none;
+    font-size: 9pt;
+    background-color: white;
+}
+
+.menu_item:hover {
+    background-color: lightblue;
+    color: black;
+    text-decoration: none;
+}
+
+.menu_selected {
+    cursor: pointer;
+    padding-left: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: white;
+}
+
+.div_box {
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.div_remove {
+    padding-left: 6px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    border: 1px solid black;
+    width: 10px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    background-color: white;
+}
+
+.div_add {
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-top: 2px;
+    border: 1px solid black;
+    width: 10px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    background-color: white;
+}
+
+.div_clear {
+    padding-left: 8px;
+    padding-bottom: 2px;
+    border: 1px solid black;
+    width: 10px;
+    font-size: 10pt;
+    text-align: left;
+    cursor: pointer;
+    background-color: white;
+}
+
+.div_title_red {
+    border: 1px solid black;
+    color: white;
+    background-color: #880000;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_title_green {
+    border: 1px solid black;
+    color: white;
+    background-color: #008800;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_title_blue {
+    border: 1px solid black;
+    color: black;
+    background-color: lightblue;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_title_orange {
+    border: 1px solid black;
+    color: white;
+    background-color: #ff7700;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_title_cyan {
+    border: 1px solid black;
+    color: white;
+    background-color: #008888;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_title_purple {
+    border: 1px solid black;
+    color: white;
+    background-color: #880088;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_title_gray {
+    border: 1px solid black;
+    color: white;
+    background-color: #888888;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 10pt;
+}
+
+.div_content {
+    font-size: 11pt;
+}
+
+.div_table_header {
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.div_table_cell {
+    font-size: 10pt;
+}
+
+.caption {
+    font-weight: bold;
+    font-size: 12pt;
+    font-family: arial;
+}
+
+/* Table */
+table.table_table {
+    border: 1px solid black;
+}
+
+p.table_title {
+    width: 100%;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+div.table_first_row {
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+}
+
+tr.table_first_row {
+    background-color: lightblue;
+}
+
+a.table_first_row {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+td.table_odd_row {
+    border: 1px solid black;
+}
+
+td.table_even_row {
+    border: 1px solid black;    
+}

@@ -1,0 +1,63 @@
+/* heatmap css */
+/* This style sheet is used by the heatmap.cgi script. the main thing that is does is make the text smaller, and the gaps between the boxes a little smaller */
+
+
+body {
+	font-family: helvetica,arial,sans-serif;
+	font-size: 0.7em; 
+}
+
+
+div.floater {
+	width: 30%;
+	float: right;
+	margin: 0;
+	margin-left: 10px;
+	padding: 10px;
+	border: 1px solid black;
+	background-color: #D5DFF5;
+	font-size: 90%;
+	clear: right;
+}
+
+
+h1,h2,p {line-height: 1.3}
+h1 {font-size: 1.2em; font-weight: bolder; text-align: center; background-color: #5500AA; color: #AAFFFF}
+h2 {font-size: 1.1em; text-align: center; background-color: #33C; color: #CFF}
+h3 {background-color: #55FFFF; color: #6E6E6E}
+
+table {width: 100%; border-collapse: collapse}
+td {border: none; padding: 3px}
+td,.tablecontent,input {line-height: 1; text-decoration: none; font-size: 0.8em;}
+th {font-family: helvetica,arial,sans-serif; font-weight: bolder; font-size: 0.8em; border: none; padding: 3px}
+a {text-decoration: none}
+a:hover {text-decoration: underline;}
+h1>a {color: yellow}
+code {font-family: Monaco,"Courier New","Andale Mono",monospace; font-size: 0.9em;}
+
+td.bordered {border: 1px solid}
+th.bordered {border: 1px solid}
+
+pre {margin-left: 4%; margin-right: 16%}
+
+.list {line-height: 1; text-decoration: none; font-size: 0.8em;}
+.description {font-size: 0.9em}
+.note {font-size: 0.9em}
+.small {font-size: 0.75em}
+
+a.help {display: block; font-size: smaller; text-align: right;}
+
+
+
+
+
+<!--[if IE 5]>
+<style type="text/css">
+
+#header h1 {width: 740px}
+#body {text-align: center}
+#header, # sideColumn, #mainColumn {text-align: left}
+
+</style>
+<![endif]-->
+

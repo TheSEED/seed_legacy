@@ -1,0 +1,467 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+    background-color: #FFFFFF;
+    margin: 0px;
+}
+
+#content div {
+    margin: 0px 0px 30px 0px;
+}
+
+#help {
+    width: 70%;
+    text-align: justify;
+    font-size: 13px;
+}
+
+p#section_bar {
+    background: #cecece; 
+    width: 70%; 
+    padding: 3px;
+}
+
+p#section_content {
+    width: 70%;
+}
+
+#section_bar img {
+    padding-right: 10px; 
+    vertical-align: middle;
+}
+
+div.explanation {
+    text-align: justify;
+    width: 70%;
+    font-size: 13px;
+}
+
+a > img {
+    border: none;
+}
+
+/********************************************************/
+/*  HEADER                                              */
+/********************************************************/
+
+#header {
+    padding: 5px 10px 5px 10px;
+    margin: 0px;
+    background: #466d94 url(../seed-bg-header.png);
+    background-repeat: repeat-x;
+    color: #eee;
+}
+
+#header a:link, #header a:visited {
+    color: #eee;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+#header a:hover, #header a:focus {
+    color: #333;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+
+#logo {
+    float: left;
+    margin: 0px 20px 0px 10px;
+}
+
+#title {
+    font-size: 17pt;
+    font-weight: bold;
+}
+
+#version {
+    color: #000;
+    font-size: 10px;
+    width: 120px;
+}
+
+/********************************************************/
+/*  MENU                                                */
+/********************************************************/
+
+div#menu {
+    font-size: 12px;
+    height: 25px;
+    display: block;
+    background-color: #86d392;
+    margin-bottom: 20px;
+    border-top: 2px solid #5da668;
+    border-bottom: 2px solid #5da668;
+}
+
+#menu img.imglink {
+    padding-top: 3px;
+    border: none;
+}
+
+#menu a.imglink {
+    padding-left: 10px;
+    float: left;
+    display: inline;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#menu li {
+    position: relative;
+    float: left;
+    font-size: 12px;
+    cursor: default;
+    background-color: #86d392;
+    padding: 5px 10px 5px 10px;
+}
+
+#menu #nav a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#menu #nav li li a {
+    display: block;
+    font-weight: normal;
+    color: #000;
+    padding: 3px 5px 3px 5px;
+}
+
+#menu #nav li li a:hover {
+    padding: 3px 5px 3px 5px;
+    color: #fff; 
+    background: #5da668;
+}
+
+
+#menu li ul {
+    display: none;
+    z-index: 5;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-weight: normal;
+    border-left: 1px solid #5da668;
+    border-right: 1px solid #5da668;
+    border-bottom: 1px solid #5da668;
+    border-top: 2px solid #5da668;
+    margin-top: 5px;
+    padding: 0px 0px 0px 0px;
+}
+
+#menu li li {
+    display: block;
+    float: none;
+    padding: 0px;
+    background-color: #d5f3c6;
+    border: 0px;
+    width: 160px;
+}
+
+#menu li>ul {
+    top: auto;
+    left: auto;
+}
+
+#menu li:hover ul, li.over ul {
+    display: block;
+}
+
+div#location {
+    float: right;
+    font-size: 10px;
+    color: #000;
+    padding: 6px 10px 6px 10px;
+}
+
+#location img {
+    margin-top: -3px;
+}
+
+#location a:link, #location a:visited {
+    color: #000;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#location a:hover, #location a:focus {
+    color: #000;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+
+/**********************************************************/
+/* Floating Boxes                                         */
+/**********************************************************/
+
+div#floating_boxes {
+    float: right;
+    margin: 0px 15px 0px 15px;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+}    
+
+div#box_brown {
+    width: 240px;
+    margin: 0px 0px 20px 0px;
+    padding-top: 5px;
+    color: #000;
+    background: #dbe5b6 url(./seed-floatingbox-top.png) no-repeat top left;
+}
+
+#box_brown div {
+    margin: 0px;
+    padding: 10px;
+    color: #000;
+    background: #dbe5b6 url(./seed-floatingbox-bottom.png) no-repeat bottom left;
+}
+
+div#box_green {
+    width: 240px;
+    margin: 0px 0px 20px 0px;
+    padding-top: 5px;
+    color: #000;
+    background: #a3c3b7 url(./seed-floatingbox-top.png) no-repeat top left;
+}
+
+#box_green div {
+    margin: 0px;
+    padding: 10px;
+    color: #000;
+    background: #a3c3b7 url(./seed-floatingbox-bottom.png) no-repeat bottom left;
+}
+
+
+#floating_boxes h5 {
+    margin: 0px 0px 5px 0px;
+    padding: 0px;
+    font-size: 9pt;
+}
+
+#floating_boxes ul {
+    margin: 0px 0px 15px 0px;
+}
+
+#floating_boxes li {
+    padding: 0px;
+    margin: 0px 0px 0px -30px;
+    list-style-type: none;
+}
+
+#floating_boxes table {
+    text-align: left;
+    font-size: 10px;
+}
+
+#floating_boxes th {
+    border: 1px solid black;
+    padding: 3px 5px 3px 5px;
+}
+
+#floating_boxes td {
+    padding: 3px 5px 3px 5px;   
+}
+
+#floating_boxes a:link, #floating_boxes a:visited {
+    color: #000;
+    background: inherit;
+    text-decoration: none;
+}
+
+#floating_boxes a:hover, #floating_boxes a:focus {
+    color: #000;
+    background: inherit;
+    text-decoration: underline;
+}
+
+
+/********************************************************/
+/*  ????                                                */
+/********************************************************/
+
+div#content {
+   margin: 0px 10px 0px 10px;
+}
+
+.hideme {
+    display: none;
+}
+
+img {
+    padding: 0px 5px 0px 0px;
+    vertical-align: middle;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+table {
+    text-align: left;
+}
+
+th {
+    font-size: 12px;
+    background: #ddd;
+    vertical-align: top;
+    padding: 3px 5px 3px 5px;
+}
+
+td {
+    font-size: 12px;
+    vertical-align: top;
+    padding: 3px 5px 3px 5px;   
+}
+
+
+#highlight th, #highlight td {
+    vertical-align: top;
+    background: #a5c8f0;   
+}
+
+/********************************************************/
+/*  Table                                               */
+/********************************************************/
+table.table_table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.highlight td.table_even_row, .highlight td.table_odd_row, .highlight td  {
+    background-color: #86d392;
+}
+
+td.highlight {
+    background-color: #86d392;
+    border: 1px solid black;
+}
+
+.dehighlight td {
+    
+}
+
+a.table_first_row {
+    color: #fff;
+    text-decoration: none;
+}
+
+td.table_first_row {
+    border: 1px solid black;
+    background-color: #688fc5;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 2px;
+}
+
+td.table_even_row {
+    border: 1px solid black;
+    background-color: #ebebeb;
+    padding: 2px;
+}
+
+td.table_odd_row {
+     border: 1px solid black;
+     padding-left: 2px;
+}
+
+table.table_browse {
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.table_perpage {
+    width: 100%;
+    font-size: 8pt;
+    text-align: center;
+}
+
+.cell {
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: default;
+    width: 100%;
+}
+
+.disp {
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: default;
+    width: 50px;
+    text-align: center;
+}
+
+
+/********************************************************/
+/*  TOOLTIP                                             */
+/********************************************************/
+
+table.tooltip {
+    border: 2px solid #466d94;
+    border-spacing: 0px;
+}
+
+th.tooltip {
+    text-align: center;
+    padding: 2px;
+    color: #fff;
+    background: #688fc5;
+    font-weight: bold;
+    border-bottom: 1px solid #466d94;
+    font-size: 12px;
+}
+
+td.tooltip {
+    padding: 2px;
+    color: #000;
+    background: #ebebeb;
+    font-size: 11px;
+}
+
+/********************************************************/
+/*  TREEVIEW                                            */
+/********************************************************/
+
+div.tree {
+    margin: 0px 15px 0px 0px;
+}
+
+/********************************************************/
+/*  SWITCH                                              */
+/********************************************************/
+
+.switch_on {
+    font-size: 9pt;
+    font-weight: normal;
+    padding: 4px;
+    margin: 2px;
+    border: 1px inset black;
+    background-color: #747474;
+    cursor: pointer;
+}
+
+.switch_off {
+    font-size: 9pt;
+    font-weight: normal;
+    padding: 4px;
+    margin: 2px;
+    border: 1px outset black;
+    background-color: #d7d7d7;
+    cursor: pointer;
+}

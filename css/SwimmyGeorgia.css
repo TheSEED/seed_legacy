@@ -1,0 +1,175 @@
+body {
+	background-color: #FF7F50;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	line-height: normal;
+}
+
+td, th {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: normal;
+	font-size: small;
+	color: #330000;
+}
+
+a {
+	color: #0000FF;
+	font-weight: bold;
+}
+
+h1, h2, h3, h4 {
+	font-family: Georgia, "Times New Roman", Times, serif
+	font-weight: bold;
+	line-height: 140%;
+	color: #0000CC;
+}
+
+h1 {
+	font-size: 22px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+
+.title {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	line-height: 30px;
+  background-color: #DC143C; color: #FFFF66;
+}
+
+.subtitle {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #660000;
+	font-style: oblique;
+	background-color: #00FFFF;
+	text-align: center;
+}
+
+.header {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	background-color: #B22222;
+	color: #000000;
+	text-align: center;
+	font-weight: bold;
+}
+
+.nav {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #CCCC66;
+}
+
+.navLink {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #A52A2A;
+	display: block; position: absolute; top: 35%; left: 15%; right: 52%; bottom: 10%;
+	border: solid;
+	padding-top: 10%;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+.sidebar {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	line-height: 150%;
+	padding: 3px;
+	background-color: #CCCCCC;
+}
+
+.sidebar a {
+		font-weight: bold;
+		}
+
+.sidebarHeader {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #FFFF99;
+	background-color: #999933;
+ font-weight: bold;
+}
+
+.sidebarFooter {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	line-height: 18px;
+	background-color: #FFFF99;
+ color: #990000;
+}
+
+
+.footer{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: bigger;
+	color: #333333;
+	display: block; position: absolute; top: 90%; right:  5%; 
+}
+
+.box1 {
+ 	border-style: solid;
+	border-width: 2px;
+	border-color: #CCCCCC #333333 #333333 #CCCCCC;
+	}
+
+.promo {
+	font-family: "Times New Roman", Times, serif;
+	color: #000033;
+}
+
+.titlebar {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 9px;
+	color: #FFFFFF;
+	background-color: #336699;
+}
+
+.search {
+        font-size: small; text-align: center;
+ 	background-color: #B22222;
+        display: block; position: absolute; top: 0; left: 0; width: 12%; min-height: 50em; overflow: hidden;
+	padding-top: 40%;
+}       
+
+
+.intro {
+	font-size: small;
+	display: block; position: absolute; top: 20%; bottom: 65%; left: 12%; right: 3; overflow: auto;
+}
+
+.available_genomes {
+	font-size: smaller;
+	display: block; position: absolute; top: 65%; right:  2%; left:  50%; bottom: 10%; overflow: auto;
+}
+
+.subsystems {
+	font-size: smaller;
+ 	display: block; position: absolute; top: 35%; right: 2%; left: 50%; bottom: 40%; overflow: auto;
+}
+
+.diagnostic {
+ 	font-size: 0.6em;
+	display: block; position: absolute; top: 100%;
+}

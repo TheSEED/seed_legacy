@@ -1,0 +1,128 @@
+/* Start with the body */
+
+body {
+ background-color: #CCFFFF;
+ font-family: Arial, Helvetica, sans-serif;
+ color: #333333;
+ background-image: url("/FIG/Html/css/marine_bg.gif");
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-position: 50% 50%;
+}
+
+
+/* Links are plain and red on hover */
+
+a {
+ text-decoration: none;
+}
+
+a:hover {
+ color: #FF0000;
+}
+
+
+/* Navigation links in the text */
+.navLink {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 110%;
+	background-color: #20B2AA;
+}
+
+
+/* Define the bakground image that is covered with text */
+
+.imagebg {
+ background-image: url("/FIG/Html/css/marine_bg2.gif");
+ background-attachment: fixed;
+ background-position: 50% 50%;
+ background-repeat: no-repeat;
+}
+
+
+/* Search box is centered and has bigger margins*/
+
+.search {
+ margin: 50px 10%;
+ text-align: center;
+}
+
+
+/* header background and larger font */
+.header {
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 200%;
+ background-color: #00FFFF;
+ color: #000000;
+ text-align: center;
+ font-weight: bold;
+}
+
+/* but not quite as large for headers in the box */
+.boxheader {
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 125%;
+ background-color: #00FFFF;
+ color: #000000;
+ text-align: center;
+ font-weight: bold;
+} 
+
+/* Intro text is smaller, has margins, and is centered */
+.intro {
+ font-size: 95%;
+ margin: 10px 10% 10px 10%;
+ overflow: auto;
+}
+
+.intro2 {
+ font-size: 95%;
+ margin: 10px 10% 10px 10%;
+ overflow: auto;
+}
+
+
+/* styleswitches are small, on the right and have a bar next to them */
+
+div.styleswitcher {
+ font-size: 75%;
+ text-align: right;
+ color: #FF0000;
+}
+span.styleswitcher {
+ margin-left: 0.5em;
+ padding-left: 0.5em;
+ border-left: solid 1px;
+}
+
+
+
+
+/* Boxes containing the subsystems and available genomes */
+
+.available_genomes {
+ margin: 10px 10% 10px 10%;
+ height: 200px;
+ width: auto;
+ overflow: auto;
+}
+
+.subsystems {
+ margin: 10px 10% 10px 10%;
+ height: 200px;
+ width:  auto;
+ overflow: auto;
+}
+
+.box1 {
+ 	border-style: solid;
+	border-width: 2px;
+	border-color:  #333333 #CCCCCC #CCCCCC #333333;
+}
+
+/* some trailing text that has information and whatnot */
+.footer {
+ font-size: 75%;
+ color: #333333;
+ margin: 10px 10% 10px 10%
+}

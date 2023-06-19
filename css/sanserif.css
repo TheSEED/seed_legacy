@@ -1,0 +1,91 @@
+body {font-family: helvetica,arial,sans-serif; font-size: 0.8em;}
+
+h1,h2,p {line-height: 1.3}
+h1 {font-size: 1.2em; font-weight: bolder}
+h2 {font-size: 1.1em}
+
+
+td,.tablecontent,input {line-height: 1; text-decoration: none; font-size: 0.8em;}
+li {font-family: helvetica,arial,sans-serif; line-height: 1.2}
+th {font-family: helvetica,arial,sans-serif; font-weight: bolder; font-size: 0.8em;}
+
+a {text-decoration: none}
+a:hover {text-decoration: underline;}
+code {font-family: Monaco,"Courier New","Andale Mono",monospace; font-size: 0.9em;}
+
+pre {margin-left: 4%; margin-right: 16%}
+
+.list {line-height: 1; text-decoration: none; font-size: 0.8em;}
+.description {font-size: 0.9em}
+.note {font-size: 0.9em}
+.small {font-size: 0.75em}
+
+a.help {display: block; font-size: smaller; text-align: right;}
+
+
+
+/* this is used in proteinfamilies.cgi to reduce the visibility of protein families. Makes font grey */
+.decrease_visibility {color: grey}
+
+.increase_visibility {background-color: yellow;}
+
+.debug {background-color: yellow;}
+
+/* These things are invisible to begin with, and then we show/hide them with javascript */
+div#linkselsewhere{display: none;}
+div#identicalproteins{display: none;}
+div#attributes{display: none;}
+div#proteinfamilies {display: none;}
+div#indexcgisettings {display: none;}
+div#proteincgisettings {display: none;}
+div#subsyscgisettings {display: none;}
+
+
+/* This is all for start.cgi */
+
+form.firstform{
+ margin-left: auto;
+ margin-right: auto;
+ width: 50%;
+ padding: 3em;
+}
+p#userid{
+ margin-left: auto;
+ margin-right: auto;
+ width: 75%;
+ padding: 3em;
+}
+
+a#help {
+ font-size: small;
+ font-family: sans-serif;
+ font-style: italic;
+}
+
+.emptyuserinput {
+ background-color: silver;
+}
+
+.go {
+ background-color: lightblue;
+ padding: 0.5em;
+ font-size: bigger;
+ text-align: center;
+}
+.center {text-align: center}
+
+.Virus {background-color: #AAFF66; border-bottom-style: dashed; border-bottom-width: 1}
+.Eukaryota {background-color: #BB66FF; border-bottom-style: dashed; border-bottom-width: 1}
+.Archaea {background-color: #DDAAAA; border-bottom-style: dashed; border-bottom-width: 1}
+.unknown {background-color: lightgrey; border-bottom-style: dashed; border-bottom-width: 1}
+.EnvironmentalSample {background-color: #AADDFF; border-bottom-style: dashed; border-bottom-width: 1}
+.Bacteria {background-color: #66CCFF; border-bottom-style: dashed; border-bottom-width: 1}
+
+
+/* Put a black border around things, and add a margin */
+
+.bordermargin {
+ margin: 20px 20px;
+ padding: 20px 20px;
+ border: solid black 1px;
+}

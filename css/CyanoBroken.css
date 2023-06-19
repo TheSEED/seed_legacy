@@ -1,0 +1,208 @@
+body {
+	background-image: url(lotsaCyanos.gif);
+	background-repeat: repeat;
+	background-color: #CCFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	line-height: normal;
+	color: #333333;
+}
+
+td, th {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: normal;
+	font-size: small;
+	color: #330000;
+}
+
+a {
+	color: #0000FF;
+	font-weight: bold;
+}
+
+h1, h2, h3, h4 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	line-height: 140%;
+	color: #0000CC;
+}
+
+h1 {
+	font-size: 22px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+h4 {
+	font-size: 14px;
+}
+
+
+.title {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	line-height: 30px;
+  background-color: #990000; color: #FFFF66;
+}
+
+.subtitle {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #660000;
+	font-style: oblique;
+	background-color: #00FFFF;
+	text-align: center;
+}
+
+.header {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	background-color: #00FFFF;
+	color: #000000;
+	text-align: center;
+	font-weight: bold;
+}
+
+.nav {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #CCCC66;
+}
+
+.navLink {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #DEDECA;
+}
+a:hover {
+	color: #FF0000;
+}
+
+.sidebar {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	line-height: 150%;
+	padding: 3px;
+	background-color: #CCCCCC;
+}
+
+.sidebar a {
+		font-weight: bold;
+		}
+
+.sidebarHeader {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	line-height: 18px;
+	color: #FFFF99;
+	background-color: #999933;
+ font-weight: bold;
+}
+
+.sidebarFooter {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	line-height: 18px;
+	background-color: #FFFF99;
+ color: #990000;
+}
+
+.footer {
+  font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 22px;
+	color: #333333;
+	background-color: #FFFF99;
+}
+
+.legal {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: small;
+	color: #333333;
+	display: block; position: absolute; top: 90%; left:  5%; 
+}
+
+.box1 {
+ 	border-style: solid;
+	border-width: 2px;
+	border-color: #CCCCCC #333333 #333333 #CCCCCC;
+	}
+
+.promo {
+	font-family: "Times New Roman", Times, serif;
+	color: #000033;
+}
+
+.titlebar {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 9px;
+	color: #FFFFFF;
+	background-color: #336699;
+}
+
+.dingbat {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background-color: #CCCC99;
+ color: #660000; font-weight: bolder; font-size: medium;
+}
+
+input.big {
+	width: 100px;
+}
+
+input.small {
+	width: 50px;
+}
+code {
+	font-family: "Courier New", Courier, mono;
+	color: #0000FF;
+	font-weight: bold;
+}
+.expo {
+	line-height: normal;
+}
+ul li {
+
+	list-style-image: url(Bullet2.gif);
+}
+ul li ul li {
+	list-style-image: url(Bullet1.gif);
+}
+
+.search {
+        font-size: small; text-align: center;
+        display: block; position: absolute; top: 32%; left: 0%; width: 100%;
+}       
+
+
+.intro {
+	font-size: small;
+	display: block; position: absolute; top: 20%; bottom: 67%; left: 3; right: 3; overflow: auto;
+}
+
+.available_genomes {
+	font-size: smaller;
+	display: block; position: absolute; top: 48%; left:  5%; right:  50%; bottom: 10%; overflow: auto;
+}
+
+.subsystems {
+	font-size: smaller;
+ 	display: block; position: absolute; top: 48%; left: 50%; right: 0; bottom: 10%; overflow: auto;
+}
+
+.diagnostic {
+ 	font-size: 0.6em;
+	display: block; position: absolute; top: 100%;
+}
+

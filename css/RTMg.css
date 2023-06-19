@@ -1,0 +1,190 @@
+body {
+	font-family: helvetica,arial,sans-serif;
+	font-size: 0.9em;
+	background-color: #FFFFFF;
+}
+
+#header {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	background-color: #466d94;
+	height: 30px;
+}
+
+#title {
+        padding: 15px 15px 15px 15px;
+        background-color: #86d392; 
+	text-align: center;
+	font-size: 2em;
+	min-height: 50px;
+	color: #FFFFFF;
+	font-family: New Century Schoolbook, Bookman, Palatino, serif;
+	font-variant: small-caps;
+	font-stretch: ultra-condensed;
+}
+
+#errorMessage {
+	padding: 15px 15px 15px 15px;
+	background-color: #FF9999;
+	color: #FFFFFF;
+	min-height: 30px;
+	font-family: helvetica,arial,sans-serif;
+}
+
+#directions {
+	padding: 25px 15px;
+	background-color: #CCFFFF;
+	margin: 15px;
+}
+
+
+
+h1,h2,p {
+	line-height: 1.3;
+}
+
+h1 {
+	font-size: 1.2em;
+	font-weight: bolder;
+	text-align: center;
+	background-color: #86d392;
+}
+
+h2 {
+	font-size: 1.1em;
+	text-align: center;
+	color: #4E4E4E;
+	background-color: #86d392;
+}
+
+h3 {
+	line-height: 1.3;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+h4 {
+	line-height: 1.1;
+	font-size: 0.8em;
+}
+
+p.dark_grey {
+	background-color: #CCCCCC;
+}
+
+
+table {
+	width: 100%;
+       border-collapse: collapse;
+}
+
+
+td {
+	border: none;
+	padding: 3px;
+}
+
+li {
+	font-family: helvetica,arial,sans-serif;
+	line-height: 1.0;
+}
+
+th {
+	font-family: helvetica,arial,sans-serif;
+	font-weight: bolder;
+	font-size: 0.9em;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	  text-decoration: underline;
+}
+
+
+#wsCalls {
+	text-align: right;
+	font-size: smaller;
+}
+
+
+#saveBox {
+	font-size: larger;
+	/* line-height: 0.9; */
+	/* border: solid 1px; */
+	margin-right: 52%;
+	padding: 5px;
+}
+
+#errors {
+	font-size: smaller;
+	line-height: 0.9;
+}
+
+#saveHits {
+	text-align: right;
+	font-size: smaller;
+	line-height: 0.9;
+	/* border: solid 1px; */
+	margin-left: 52%;
+	padding: 5px;
+}
+
+#saveJson {
+	font-size: smaller;
+	line-height: 0.9;
+	/* border: solid 1px; */
+	margin-right: 52%;
+	padding: 5px;
+}
+
+#showadvancedSettings {
+	display: block;
+}
+
+#advancedSettings {
+	display: none;
+}
+
+#cacheImg {
+	display: none;
+}
+
+.small {
+	font-size: 0.75em;
+}
+
+a.help {
+	display: block;
+	background-color: #466d94;
+	color: white;
+	font-size: smaller;
+	text-align: right;
+}
+
+
+/* the iframe */
+iframe {
+	height: 75%;
+	min-height: 60%;
+	width: 100%;
+	display: block;
+	padding: 5px;
+}
+
+/* Sortable tables */
+table.sortable thead {
+	background-color:#eee;
+	color:#666666;
+      font-weight: bold;
+	cursor: default;
+}
+
+table.sortable tfoot {
+	background-color:#eee;
+}
+
+
