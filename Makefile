@@ -34,7 +34,7 @@ all: bin  cp-html
 
 cp-html:
 	mkdir -p $(TOP_DIR)/html
-	for dir in js images ; do \
+	for dir in js images css ; do \
 	    if [[ -d $$dir ]] ; then \
 		rsync -arv $$dir/* $(TOP_DIR)/html; \
 	    fi; \
