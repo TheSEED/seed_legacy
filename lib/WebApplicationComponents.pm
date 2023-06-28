@@ -22,29 +22,29 @@ use WebApplicationComponents::Table2;
 sub tabulator {
   my ($params) = @_;
 
-   return Tabulator->new($params);
+   return WebApplicationComponents::Tabulator->new($params);
 }
 
 sub menu {
   my ($params) = @_;
 
-  return Menu->new($params);
+  return WebApplicationComponents::Menu->new($params);
 }
 
 sub list {
   my ($params) = @_;
 
-  return List->new($params);
+  return WebApplicationComponents::List->new($params);
 }
 
 sub table {
   my ($params) = @_;
 
-  return Table->new($params);
+  return WebApplicationComponents::Table->new($params);
 }
 
 sub table2 {
   my ($params) = @_;
 
-  return Table2->new($params);
+  return WebApplicationComponents::Table2->new($params);
 }
