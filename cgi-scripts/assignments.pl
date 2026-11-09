@@ -39,6 +39,10 @@ if (0)
 my $html = [];
 
 my $user = $cgi->param('user');
+# Security: the user parameter is reflected into HTML and link URLs in several
+# places (incl. helper subs that re-read it); strip HTML-breaking characters so
+# it cannot inject markup (CWE-79). Write back so downstream reads are clean too.
+if (defined($user)) { $user =~ s/[<>"']//g; $cgi->param('user', $user); }
 if ($user !~ /^master:/) { "master:$user" }
 
 if (! $user)
@@ -268,7 +272,9 @@ sub edit_set {
     }
     else
     {
-	push(@$html,$cgi->h1("Sorry, $set does not exist for user $user"));
+	# HTML encode user input to prevent XSS (TIKI-W094-V3-28)
+	my $safe_user = CGI::escapeHTML($user);
+	push(@$html,$cgi->h1("Sorry, $set does not exist for user $safe_user"));
     }
 }
 

@@ -2790,7 +2790,7 @@ sub show_ec_to_maps {
 
     $ec = $cgi->param('ec');
     if (! $ec) {
-        push(@$html,$cgi->h1("Missing EC number"));
+        $html .= $cgi->h1("Missing EC number");
         return;
     }
 

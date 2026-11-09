@@ -2174,7 +2174,9 @@ sub export_assignments {
     my @assignments = $fig->assignments_made(\@genomes,$who,$cgi->param('after_date'));
     if (@assignments == 0)
     {
-        push(@$html,$cgi->h1("Sorry, no assignments where made by $who"));
+        # HTML encode user input to prevent XSS (TIKI-W094-V3-18)
+        my $safe_who = CGI::escapeHTML($who);
+        push(@$html,$cgi->h1("Sorry, no assignments where made by $safe_who"));
     }
     else
     {
@@ -2221,7 +2223,7 @@ sub export_assignments {
         }
         else
         {
-            push(@$html,&HTML::make_table($col_hdrs,$tab,"Assignments Made by $who"));
+            push(@$html,&HTML::make_table($col_hdrs,$tab,"Assignments Made by ".CGI::escapeHTML($who)));
         }
     }
 }

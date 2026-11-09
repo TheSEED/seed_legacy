@@ -86,12 +86,18 @@ my @times;                               ## time ##
 push @times, scalar time() if $time_it;  ## time ##
 
 my $html = [];
-push @$html, ( $cgi->param('ssa_name') ? "<TITLE>SEED Subsystem: " . $cgi->param('ssa_name') . "</TITLE>\n"
+# HTML encode user input to prevent XSS (TIKI-W094-V3-21)
+my $safe_ssa_name = CGI::escapeHTML($cgi->param('ssa_name') || '');
+push @$html, ( $cgi->param('ssa_name') ? "<TITLE>SEED Subsystem: " . $safe_ssa_name . "</TITLE>\n"
                                        : "<TITLE>SEED Subsystems</TITLE>\n"
              ); # RAE: every page deserves a title
 
-my $user = $cgi->param('user'); 
+my $user = $cgi->param('user');
+# Security: the user parameter is reflected into the page; strip HTML-breaking
+# characters so it cannot inject markup (CWE-79). Write back for downstream reads.
+if (defined($user)) { $user =~ s/[<>"']//g; }
 if (($user =~ /^\S/) && ($user !~ /^master:/)) { $user = "master:$user" }
+$cgi->param('user', $user);
 
 $fig->set_user($user);
 

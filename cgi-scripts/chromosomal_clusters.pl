@@ -52,7 +52,7 @@ if (0) {
 
 if (0) {
     print $cgi->header;
-    my @params = $cgi->param;
+    my @params = $cgi->multi_param;
     print "<pre>\n";
     foreach $_ (@params) {
                 print "$_\t:",join(",",$cgi->param($_)),":\n";
@@ -135,7 +135,7 @@ sub main_routine
         my $prot = $cgi->param('prot');
         if ($prot =~ /^fig\|\d+\.\d+\.peg\.\d+$/)
         {
-            if (0 && &handled_by_local_cache($fig, $cgi, $prot, $sim_cutoff))
+            if (&handled_by_local_cache($fig, $cgi, $prot, $sim_cutoff))
             {
                 #tick("exit 1");
                 return;
@@ -207,7 +207,6 @@ sub main_routine
         # As of May 8, 2005, we are going to start caching results, so all GenoGraphics images
         # are saved.  Hence, I am disposing of the "save" option.  RAO
         push( @$html, @{ &GenoGraphics::render( $gg, 1000, 4, 1 ) } );
-        push( @$html,    &FIGGenDB::linkClusterGenDB($prot) );
     }
 
     &cache_html( $fig, $cgi, $html );
@@ -372,7 +371,7 @@ sub show_commentary {
     my $ffs = new FFs("$FIG_Config::FigfamsData");
 
     my $new_framework = $cgi->param('new_framework') ? 1 : 0;
-    @vals = $cgi->param('show');
+    @vals = $cgi->multi_param('show');
     # The list of FIDs we're looking at will go in here.
     my @fidList = ();
     # Loop through the incoming values.
@@ -734,7 +733,7 @@ sub get_prot_and_pins
     # RAE: added this so that you can paste spaces and get a resonable answer!
     $prot =~ s/^\s+//; $prot =~ s/\s+$//;
 
-    my @pegs = map { split(/,/,$_) } $cgi->param('pinned_to');
+    my @pegs = map { split(/,/,$_) } $cgi->multi_param('pinned_to');
     # RAE: remove leading and trailing spaces from IDs
     map {s/^\s+//; s/\s+$//} @pegs;
     my @nonfig = grep { $_ !~ /^fig\|/ } @pegs;
@@ -742,6 +741,7 @@ sub get_prot_and_pins
 
     my $uniL = {};
     my $uniM = {};
+    my %func_memo;   # 2026-11-05: memoize function_of in the correspondence table
 
     if (@nonfig > 0)
     {
@@ -767,12 +767,12 @@ sub get_prot_and_pins
             else
             {
                 $fig_id = join("<br>",map { &HTML::fid_link($cgi,$_) } @to_fig);
-                $fig_func = join("<br>",map { $fig->function_of($_) } @to_fig);
+                $fig_func = join("<br>",map { $func_memo{$_} //= $fig->function_of($_) } @to_fig);
                 $fig_org  = join("<br>",map { $fig->org_of($_) } @to_fig);
                 push(@pinned_to,@to_fig);
             }
             my $uni_org = $fig->org_of($x);
-            push(@$tab,[&HTML::uni_link($cgi,$x),$fig->org_of($x),scalar $fig->function_of($x),$fig_id,$fig_org,$fig_func]);
+            push(@$tab,[&HTML::uni_link($cgi,$x),$fig->org_of($x),scalar($func_memo{$x} //= $fig->function_of($x)),$fig_id,$fig_org,$fig_func]);
         }
         push(@$html,$cgi->hr);
         push(@$html,&HTML::make_table($col_hdrs,$tab,"Correspondence Between UniProt and FIG IDs"));
@@ -862,6 +862,10 @@ sub get_initial_gg_and_all_pegs {
     my $gg = [];
     my($peg,$loc,$org,$contig,$beg,$end,$min,$max,$genes,$feat,$fid);
     my($contig1,$beg1,$end1,@all_pegs,$map,$mid,$pegI);
+    # 2026-11-05: batch function lookups for the pin instead of one DB query
+    # per peg (FIG::function_of_bulk issues one IN(...) per 1000 ids); region
+    # neighbours not in the pin still fall through to function_of via //=
+    my $func_of = $fig->function_of_bulk([ @$pinned_to ], 1);
     foreach $peg ( @$pinned_to )
     {
         $org = $fig->org_of($peg);
@@ -888,7 +892,7 @@ sub get_initial_gg_and_all_pegs {
 
                     #  Build the pop-up information for the gene:
 
-                    my $function = $fig->function_of($fid);
+                    my $function = $func_of->{$fid} //= $fig->function_of($fid);
                     my $aliases1 = $fig->feature_aliases($fid);
                     my ( $uniprot ) = $aliases1 =~ /(uni\|[^,]+)/;
 
@@ -1046,8 +1050,8 @@ sub form_sets_and_set_color_and_text {
 
     my %conn;
 
-    my @texts  = $cgi->param('text');   # map of id to text
-    my @colors = $cgi->param('color');  # peg:color pairs
+    my @texts  = $cgi->multi_param('text');   # map of id to text
+    my @colors = $cgi->multi_param('color');  # peg:color pairs
     my @color_sets = ();
 
     #  Case 1, find sets of related sequences using sims:
@@ -1199,7 +1203,7 @@ sub update_gg_with_color_and_text {
     # Here we get a list of the proteins we must have in order to be part of the result.
     # One of them will always be the focus protein. A gene that does not have a connection to
     # all the proteins in the must-have list will be discarded.
-    my @must_have = $cgi->param('must_have');
+    my @must_have = $cgi->multi_param('must_have');
     push @must_have, $prot;
 
     my @vals = ();
@@ -1380,7 +1384,7 @@ sub resolve_id {
 sub cache_html {
     my($fig,$cgi,$html) = @_;
 
-    my @params = sort $cgi->param;
+    my @params = sort $cgi->multi_param;
 #   print STDERR &Dumper(\@params);
     if ((@params == 3) &&
         ($params[0] eq 'prot') &&
@@ -1423,7 +1427,7 @@ sub handled_by_local_cache
 {
     my($fig, $cgi, $prot, $sim_cutoff) = @_;
 
-    my @params = sort $cgi->param;
+    my @params = sort $cgi->multi_param;
 
     #
     # Determine if the parameters list contains only prot/uni/user/SPROUT.
@@ -1441,7 +1445,13 @@ sub handled_by_local_cache
     my $sprout = $cgi->param('SPROUT') ? "&SPROUT=1" : "";
     my $user = $cgi->param('user');
     my $uni  = $cgi->param('uni');
-    my $file = &cache_file($prot,$uni, $sim_cutoff);
+    # NOTE 2026-11-05: key must match cache_html's cache_file($prot,$uni) —
+    # it writes "$prot:$uni:" (no sim_cutoff); passing $sim_cutoff here made
+    # the read key "$prot:$uni:1.0e-20" and the cache could never hit.
+    # sim_cutoff is safe to omit: requests carrying a sim_cutoff param are
+    # rejected by the param check above, so cached requests always use the
+    # default cutoff.
+    my $file = &cache_file($prot,$uni);
 
     if (!open(CACHE,"<$file"))
     {
@@ -1690,7 +1700,6 @@ sub handled_by_precomputed_pin
 
     #tick("after render");
 
-    push( @$html,    &FIGGenDB::linkClusterGenDB($prot) );
 
     #tick("after link");
 

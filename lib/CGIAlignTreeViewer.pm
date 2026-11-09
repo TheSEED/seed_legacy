@@ -88,6 +88,19 @@ sub run
     #  Let's see if we can work out missing values from other data:
 
     $fid         ||= $checked[0] if @checked == 1;
+
+    #  Security: validate the user-supplied feature IDs against a strict allowlist
+    #  before they reach the database layer (CWE-89).  Expected format is a FIG
+    #  feature id, e.g. "fig|83333.1.peg.4".  Reject anything else.
+    if ( length $fid && $fid !~ /^fig\|\d+\.\d+\.[A-Za-z_]+\.\d+$/ )
+    {
+        return ( [ "<H2>Invalid feature id.</H2>\n" ], "Invalid feature id" );
+    }
+    if ( length $from && $from !~ /^fig\|\d+\.\d+\.[A-Za-z_]+\.\d+$/ )
+    {
+        return ( [ "<H2>Invalid feature id.</H2>\n" ], "Invalid feature id" );
+    }
+
     $ali_tree_id ||= $align_id || $tree_id || '';
     $ali_tree_id   = '' if $action =~ /ali.* tree.* with.* prot/i;  #  Forced update of list
     if ( ( ! $ali_tree_id ) && ( ! @ali_tree_ids ) && $fid )
@@ -95,6 +108,14 @@ sub run
         @ali_tree_ids = AlignsAndTreesServer::aligns_with_pegID( $sapObject, $fid );
     }
     $ali_tree_id ||= $ali_tree_ids[0] if @ali_tree_ids == 1;
+
+    #  Security: the alignment/tree id ($align_id / $tree_id / $ali_tree_id) is
+    #  reflected into the page title and several headings.  Restrict it to a safe
+    #  charset (no HTML metacharacters) to prevent reflected XSS (CWE-79).
+    if ( length $ali_tree_id && $ali_tree_id !~ /^[\w.\-]+$/ )
+    {
+        return ( [ "<H2>Invalid alignment/tree id.</H2>\n" ], "Invalid alignment/tree id" );
+    }
 
     #  Move alignment and tree selection information into one id and two booleans
 

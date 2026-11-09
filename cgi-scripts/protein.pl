@@ -40,6 +40,9 @@ eval {
     my ($fig, $cgi, $user) = FIG_CGI::init(debug_save   => 0,
                                            debug_load   => 0,
                                            print_params => 0);
+    # Security: the prot parameter is reflected into the page title/redirect;
+    # strip HTML-breaking characters so it cannot inject markup (CWE-79).
+    if (defined($cgi->param('prot'))) { (my $v = $cgi->param('prot')) =~ s/[<>"']//g; $cgi->param('prot', $v); }
     my $nmpdr = (FIGRules::nmpdr_mode($cgi) ? 1 : 0);
     if ($nmpdr && "$FIG_Config::linkinSV") {
         my ($prot) = $cgi->param('prot');
@@ -154,7 +157,9 @@ sub main {
 	    $to->titles($parameters);
 	    $to->add("<br/>" . SeedComponents::Protein::get_index_link() . "<br/>") if $to->raw;
 	    $to->add(SeedComponents::Framework::get_js_css_links()) if $to->raw;
-	    $to->add("<h2>The Protein with ID $pegID does not (no longer) exist.</h2>") if $to->raw;
+	    # HTML encode user input to prevent XSS (TIKI-W094-V3-15)
+	    my $safe_pegID = CGI::escapeHTML($pegID);
+	    $to->add("<h2>The Protein with ID $safe_pegID does not (no longer) exist.</h2>") if $to->raw;
 	    $to->add("<br/>" . SeedComponents::Protein::get_index_link() . "<br/>") if $to->raw;
 	    print $to->finish();
 	    return 1;
