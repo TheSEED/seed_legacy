@@ -23,7 +23,7 @@ my %month2num = (
 	"dec" => '12',
 	);
 
-my $entrez_base = "http://eutils.ncbi.nlm.nih.gov/entrez/";
+my $entrez_base = "https://eutils.ncbi.nlm.nih.gov/entrez/";
 my $journal_url = "$entrez_base"."eutils/esummary.fcgi?db=pubmed&id=";
 my $url_format = "&retmode=xml";
 

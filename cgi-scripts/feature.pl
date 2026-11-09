@@ -39,6 +39,9 @@ if ( $feature && $feature !~ /^fig\|/ )
 {
     $feature = $_  if ( $_ = $fig->by_alias( $feature ) )
 }
+# Security: the feature parameter is reflected into the page; strip HTML-breaking
+# characters so it cannot inject markup (CWE-79). Write back for downstream reads.
+if (defined($feature)) { $feature =~ s/[<>"']//g; $cgi->param('feature', $feature); }
 
 if ( ! $feature )
 {
@@ -57,7 +60,9 @@ elsif ( $feature =~ /^fig\|/ )
 else
 {
     unshift @$html, "<TITLE>The SEED Feature Page</TITLE>\n";
-    push(@$html,"<h1>Sorry, $feature appears not to have a FIG id at this point</h1>\n");
+    # HTML encode user input to prevent XSS (TIKI-W094-V3-16)
+    my $safe_feature = CGI::escapeHTML($feature);
+    push(@$html,"<h1>Sorry, $safe_feature appears not to have a FIG id at this point</h1>\n");
 }
 
 &HTML::show_page($cgi,$html);
@@ -126,7 +131,9 @@ sub show_initial {
 
     if (! $fig->is_real_feature($feature))
     {
-	push(@$html,"<h1>Sorry, $feature is an unknown identifier</h1>\n");
+	# HTML encode user input to prevent XSS (TIKI-W094-V3-16)
+	my $safe_feature = CGI::escapeHTML($feature);
+	push(@$html,"<h1>Sorry, $safe_feature is an unknown identifier</h1>\n");
     }
     else
     {
